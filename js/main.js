@@ -44,17 +44,21 @@ var winHeight = $(window).height();
 
 $(".responsive-photo").on("click", function() {
 	$(this).addClass("selected");
-	$(".fullpage-overlay").css("display", "block");
-	// $(this).css({
-	// 	"width": winWidth,
-	// 	"height": winHeight,
-	// 	"background": "red",
-	// });
+	$(".fullpage-overlay").css("visibility", "visible");
+	$(".close-overlay").css("visibility", "visible");
+	$(this).animate({
+		"width": winWidth,
+	});
 });
 
 $(".close-overlay").on("click", function() {
 	$(".responsive-photo").removeClass("selected");
-	$(".fullpage-overlay").css("display", "none");
+	$(".responsive-photo").animate({
+		"width": "100%",
+		"height": "100%",
+	});
+	$(".fullpage-overlay").css("visibility", "hidden");
+	$(this).css("visibility", "hidden");
 });
 
 
