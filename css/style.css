@@ -1,0 +1,502 @@
+/* ------------- HTML/BODY/ARTICLE STYLES --------------- */
+
+html {
+	box-sizing: border-box;	
+	font-family: Lato;
+	font-weight: 300;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	z-index: 0;
+}
+
+.main-container {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.social-media-icons {
+	list-style: none;
+	color: white;
+	width: 160px;
+	position: relative;
+	top: 310px;
+	margin: 0 auto;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+}
+
+.social-media-icons li {
+	flex: 1 1 100%;
+	-webkit-flex: 1 1 100%;
+	-ms-flex: 1 1 100%;
+}
+
+.primary-story {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fullpage-overlay {
+	background-color: rgba(0, 0, 0, .9);
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+	display: none;
+}
+
+/* .social-media-footer {
+	color: white;
+	background-color: #444;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	border-top: 1px solid #DDD;
+}
+*/
+
+
+
+
+/* ------------------ ANIMATIONS AND EFFECTS ----------------- */
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity: 0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+}
+
+/* ---------------- PHOTO AND PHOTO CONTAINER STYLES ------------------ */ 
+
+.full-width-photo-top, .full-width-photo {
+	background: #000;
+	background-image: url("../img/Rochkind_CHEM_09_B.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	max-width: 100%;
+	height: 450px;
+	margin-bottom: 2rem;
+}
+
+.full-width-photo {
+	background-image: url("../img/photo9.jpg");
+}
+
+/*
+.full-width-photo-top:after {
+	background: black;
+	content: "00";
+	width: 20px;
+	height: 20px;
+	padding: 10px;
+	position: relative;
+	top: 370px;
+	left: 50%;
+	border-radius: 40px;
+}
+
+.full-width-photo:hover {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	cursor: pointer;
+}
+
+*/
+
+
+.responsive-photo {
+	width: 100%;
+	max-height: auto;
+	padding: 0;
+	margin: 0;
+}
+
+.responsive-photo.selected {
+	max-width: 800px;
+	z-index: 2;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+.responsive-photo.selected:hover {
+	cursor: default;
+	filter: none;
+	-webkit-filter: none;
+	transition: none;
+	opacity: 1;
+}
+
+.responsive-photo:hover {
+	cursor: pointer;
+	transition: all ease .5s;
+	filter: grayscale(90%);
+	-webkit-filter: grayscale(90%);
+	-moz-filter: grayscale(90%);
+	opacity: .2;
+}
+
+.three-column-photo-layout {
+	max-width: 80%;
+	height: auto;
+	margin: 1% auto;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	clear: both;
+	position: relative;
+}
+
+.three-column-photo-layout.enlarge {
+	width: 100%;
+}
+
+.small-photo-container {
+	position: relative;
+	flex: 1 1 100%;
+	-webkit-flex: 1 1 100%;
+	-ms-flex: 1 1 100%;
+	width: 33%;
+	margin: 1%;
+	clear: both;
+}
+
+.small-photo-container:first-child {
+	margin-left: 0;
+}
+
+.small-photo-container:last-child {
+	margin-right: 0;
+}
+
+.med-photo-container {
+	position: relative;
+	width: 50%;
+	margin: 1% 1% 0 1%;
+	flex: 1 1 100%;
+	-webkit-flex: 1 1 100%;
+	-ms-flex: 1 1 100%;
+	-moz-flex: 1 1 100%;
+}
+
+.med-photo-container:first-child {
+	margin-left: 0;
+}
+
+.med-photo-container:last-child {
+	margin-right: 0;
+}
+
+.large-photo-container {
+	position: relative;
+	width: 100%;
+	clear: both;
+	border: 0;
+}
+
+/*
+.large-photo-container:hover, .med-photo-container:hover, .small-photo-container:hover {
+	background: rgba(253, 143, 52, 1) url("../img/zoom-icon.svg") no-repeat center 50%;
+	background-size: 40px;
+}
+*/
+
+.tint {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #FF8F23 url("../img/zoom-icon.svg") no-repeat center 50%;
+	background-size: 30px;
+	padding: 0;
+	opacity: 0;
+}
+
+.large-photo-container:hover > .tint, .med-photo-container:hover > .tint, .small-photo-container:hover > .tint {
+	opacity: 1;
+	width: 100%;
+}
+
+/* ------------------ TEXT (NON-DATA) STYLES --------------------- */
+
+.main-title {
+	font-weight: 300;
+	font-size: 50px;
+	color: #EEF;
+	text-align: center;
+	position: relative;
+	top: 300px;
+}
+
+.description {
+	width: 80%;
+	font-size: 16px;
+	line-height: 1.5em;
+	color: #777;
+	margin: 1rem auto 3rem auto;
+	text-align: left;
+}
+
+blockquote {
+	width: 200px;
+	font-size: 20px;
+	line-height: 1.3;
+	color: #FFF;
+	position: relative;
+	top: 15%;
+	left: 7.5%;
+	text-shadow: 1px 1px 15px #333;
+}
+
+blockquote:first-letter {
+	color: #FF8F23;
+	font-size: 7.5rem;
+	float: left;
+	-webkit-float: left;
+	-ms-float: left;
+	line-height: .8;
+	margin-left: -5px;
+	padding-right: .5rem;
+}
+
+
+
+/* --------------------- DATA STYLES ------------------------ */
+
+.data-main-container {
+	margin: 1.5rem auto;
+	text-align: center;
+}
+
+.data-point {
+	width: 200px;
+	height: 200px;
+	background-image: url("../img/stripe_orange.gif");
+	border-radius: 100px;
+	margin: 1%;	
+	display: inline-block;
+}
+
+.data {
+	font-size: 50px;
+	text-align: center;
+	color: #FF8F23;
+	position: relative;
+	top: 60px;
+}
+
+.data-explanation {
+	font-weight: 400;
+	font-size: 13px;
+	text-align: center;
+	color: #888;
+	position: relative;
+	top: 55px;
+}
+
+
+
+/* -------------------- BUTTONS -------------------- */
+
+.close-overlay {
+	cursor: pointer;
+	background: rgba(20, 20, 20, 1) url("../img/close-button.svg") no-repeat center 50%;
+	background-size: 30%;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 30px;
+	right: 10px;
+	border: none;
+	border-radius: 20px;
+	z-index: 10;
+}
+
+.close-overlay:hover {
+	background-color: #FF8F23;
+}
+
+.scrollUp {
+	cursor: pointer;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	bottom: 30px;
+	right: 10px;
+	background: rgba(20, 20, 20, 1) url("../img/scrollup-arrow.svg") no-repeat center 50%;
+	border: 0;
+	border-radius: 20px;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 3;
+	outline: none;
+	transition: opacity .3s 0s, visibility 0s .3s;
+	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+	-moz-transition: opacity .3s 0s, visibility 0s .3s;
+	-ms-transition: opacity .3s 0s, visibility 0s .3s;
+}
+
+.scrollUp-visible {
+	/* the button becomes visible */
+	visibility: visible;
+	opacity: 1;
+}
+.scrollUp-fade-out {
+	/* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+	opacity: 1;
+}
+
+.scrollUp:hover {
+	background-color: #FF8F23;
+	opacity: 1;
+}
+
+.twitter-button {
+	background: url("../img/twitter_icon.svg") no-repeat center 50%;
+}
+
+.facebook-button {
+	background: url("../img/facebook_icon.svg") no-repeat center 50%;
+}
+
+.linkedin-button {
+	background: url("../img/linkedin_icon.svg") no-repeat center 50%;
+}
+
+.twitter-button, .facebook-button, .linkedin-button {
+	background-color: rgba(255, 255, 255, .4);
+	cursor: pointer;
+	background-size: 60%;
+	border-radius: 30px;
+	width: 45px;
+	height: 45px;
+	border: none;
+	outline: none;
+}
+
+.twitter-button:hover, .facebook-button:hover, .linkedin-button:hover {
+	background-color: rgba(253, 143, 52, 1);
+}
+
+
+/*--------------------- MEDIA QUERY (for mobile devices for now) -------------------*/
+
+@media (max-width: 480px) {
+
+	.primary-story {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.full-width-photo-top {
+		height: 350px;
+		margin-bottom: 2rem;
+	}
+
+	.main-title {
+		font-size: 30px;
+		top: 55%;
+	}
+
+	.social-media-icons {
+		top: 60%;
+	}
+
+	blockquote {
+		width: 100%;
+		background: rgba(3, 3, 3, 0.4);
+		padding: 10px 15px;
+		font-size: 15px;
+		line-height: 1.3;
+		color: #FFF;
+		position: relative;
+		top: 70%;
+		left: 0;
+		text-shadow: 1px 1px 15px #333;
+	}
+
+	blockquote:first-letter {
+		color: #FF8F23;
+		font-size: 4.2rem;
+		float: left;
+		-webkit-float: left;
+		-ms-float: left;
+		line-height: .85;
+		margin-left: -5px;
+		padding-right: .2rem;
+	}
+
+	.three-column-photo-layout {
+		display: block;
+		clear: both;
+		margin-bottom: 10px;
+	}
+
+	.small-photo-container {
+		display: block;
+		clear: both;
+		width: 100%;
+		margin: auto;
+	}
+
+	.med-photo-container {
+		width: 100%;
+		margin: auto;
+	}
+
+	.large-photo-container {
+		width: 100%;
+	}
+
+}
+
+
+/* EXTRAS/UNUSED FOR NOW ---------------
+
+.subhead {
+	font-family: Lato;
+	font-size: 30px;
+	line-height: 2;
+	color: #444;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.subtitle {
+	font-weight: 300;
+	font-size: 20px;
+	color: #FFF;
+	text-align: center;
+	position: relative;
+	top: 310px;
+}
+*/
+
